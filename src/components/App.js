@@ -33,9 +33,9 @@ class App extends Component {
 
   componentDidUpdate (prevProps, prevState) {
     if (prevState.state === 'playing' && this.state.state === 'lost') {
-      setTimeout((e) => { this.setState({gameOver: true}) }, 2500)
+      setTimeout((e) => { this.setState({gameOver: true}) }, 3000)
     } else if (prevState.state === 'playing' && this.state.state === 'won') {
-      setTimeout((e) => { this.setState({gameOver: true}) }, 2500)
+      setTimeout((e) => { this.setState({gameOver: true}) }, 3000)
     }
   }
 
@@ -93,7 +93,8 @@ class App extends Component {
     }
     return <Router>
       <div className='App'>
-        <h1> Minesweeper </h1>
+        <h1> Hollysweeper </h1>
+        <p> Avoid the Hollywood Stars of Death! </p>
         <Switch>
           <Route path='games' component={GameBoard} />
         </Switch>
