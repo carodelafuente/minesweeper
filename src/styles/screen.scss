@@ -9,15 +9,15 @@ html {
 
 body {
   margin: 0;
+  height: 100%;
   font: $base-text-size / 1 $base-font-family;
   background-image: url('/hollywood.jpg');
-  background-size: contain;
-  // background-position: center;
-  // background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .App {
-  // background-position: center;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -29,31 +29,28 @@ body {
 .GameBoard {
   display: flex;
   justify-content: center;
-  border: 1px solid #333;
-  background-color: transparentize(#333, 0.2);
+  background-color: #333;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 
   tbody {
     border-spacing: 1;
     height: 100px;
     width: 100px;
-    border: 1px solid black;
-    background: url('/star.gif-c200');
     background-size: contain;
 
     td {
       height: 16px;
       width: 16px;
-      border: 1px solid black;
       text-align: center;
       line-height: 16px;
 
       &.unrevealed {
-        background-color: plum;
+        background-color: indianred;
       }
 
       &.empty,
       &.numbered {
-        background-color: thistle;
+        background-color: $darkred;
       }
 
       &.bomb {
@@ -62,11 +59,11 @@ body {
       }
 
       &.flagged {
-        background-color: lightgreen;
+        background-color: rgb(235, 167, 69);
       }
 
       &.flagbomb {
-        background-color: green;
+        background-color: thistle;
       }
     }
   }
@@ -75,29 +72,91 @@ body {
 h1 {
   margin-bottom: 0;
   margin-top: 10px;
-  font-size: 3em;
+  font-size: 5em;
 }
 
 p {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 0;
 
 }
 
 .choose {
-  // border: 1px solid #333;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: $darkred;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
 .gameOver {
-  border: 1px solid #333;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
+  width: 200px;
+  padding: 5px;
+  padding-top: 0;
+  margin-top: 30px;
   border-radius: 10px;
+  background-color: $darkred;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+
+  .tryAgain {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+}
+
+button {
+  background-color: rgb(81, 160, 164);
+  width: 100px;
+  border: none;
+  box-shadow: 0px 6px 15px -1px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  margin: 10px;
+  font-family: Courier;
+
+    &:active {
+     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+     transition-delay: 0s;
+     outline: none !important;
+   }
+
+   &:focus {
+     outline: none !important;
+   }
+}
+
+footer {
+  font-family: Gotham;
+  font-size: 11px;
+  position: fixed;
+  bottom: 0;
+  color: #333;
+}
+
+
+@media screen and (max-width: 414px) {
+  .App {
+    margin-top: 20px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+
+  .choose, .gameOver {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }

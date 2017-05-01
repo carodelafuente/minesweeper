@@ -33,9 +33,9 @@ class App extends Component {
 
   componentDidUpdate (prevProps, prevState) {
     if (prevState.state === 'playing' && this.state.state === 'lost') {
-      setTimeout((e) => { this.setState({gameOver: true}) }, 3000)
+      setTimeout((e) => { this.setState({gameOver: true}) }, 4000)
     } else if (prevState.state === 'playing' && this.state.state === 'won') {
-      setTimeout((e) => { this.setState({gameOver: true}) }, 3000)
+      setTimeout((e) => { this.setState({gameOver: true}) }, 4000)
     }
   }
 
@@ -85,8 +85,8 @@ class App extends Component {
       </div>
     } else if (this.state.gameOver) {
       view = <div className='gameOver'>
-        <h2>{this.state.state === 'won' ? 'You won!' : 'You lost!'}</h2>
-        <button onClick={() => this.reset()}> New Game? </button>
+        <h2>{this.state.state === 'won' ? 'You won!' : 'You lose!'}</h2>
+        <button className='tryAgain' onClick={() => this.reset()}> Try Again? </button>
       </div>
     } else {
       view = <GameBoard board={this.state.board} check={(x, y) => this.check(x, y)} flag={(x, y) => this.flag(x, y)} />
@@ -99,6 +99,7 @@ class App extends Component {
           <Route path='games' component={GameBoard} />
         </Switch>
         <div> {view} </div>
+        <footer> Copyright &copy; Made with &hearts; by Carolina de la Fuente </footer>
       </div>
     </Router>
   }
